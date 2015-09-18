@@ -7,3 +7,9 @@ describe('hasBeer', function() {
     expect(hasBeer(99)).to.equal(true);
   });
 });
+
+describe('beerOnTheWall', function() {
+  it("returns array of bottles in descending order", function() {
+    expect(beerOnTheWall(5)).to.eql([5, 4, 3, 2, 1]);
+  });
+});

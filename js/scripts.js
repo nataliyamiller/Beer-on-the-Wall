@@ -5,3 +5,12 @@ var hasBeer = function(numberOfBottles) {
      return false;
    }
 }
+
+var beerOnTheWall = function(numberOfBottles) {
+  var bottlesArray = [];
+  while(hasBeer(numberOfBottles)) {
+    bottlesArray.push(numberOfBottles);
+    numberOfBottles -= 1;
+  }
+  return bottlesArray;
+}
