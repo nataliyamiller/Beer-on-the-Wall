@@ -5,3 +5,9 @@
 #result-2 {
   display: none;
 }
+
+.one-bottle {
+  color: red;
+  font-weight: bold;
+  font-size: 15px;
+}

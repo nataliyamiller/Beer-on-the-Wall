@@ -18,7 +18,7 @@ var beerOnTheWall = function(numberOfBottles) {
 var oneBeerLeft = function() {
   return ("Only 1 bottle of beer on the wall, only 1 bottle of beer." +
   " Take this last one down and pass it around, no more bottles of beer on the wall, no more bottles of beer." +
-  "  Go to the store and buy some more, currently no bottles of beer on the wall.");
+  "  Go to the store and buy some more, no more bottles of beer on the wall.");
 }
 
 
@@ -37,12 +37,20 @@ $(function() {
       $("#result-2").slideDown();
       $("ul").empty();
       var number = hasBottles.length;
+
       for (var i = 0; i < number - 1 ; i++) {
-      $("ul").append("<li>" + hasBottles[i] + "bottles of beer on the wall, " + hasBottles[i] +
-      "bottles of beer. Take one down and pass it around, " + hasBottles[i+1] + "bottles of beer on the wall.</li>");
+        var $new = $("<h5>" + hasBottles[i] + " bottles of beer on the wall, " + hasBottles[i] +
+        " bottles of beer. Take one down and pass it around, " + hasBottles[i+1] + " bottles of beer on the wall.</h5>").hide();
+        $("p.many-bottles").append($new);
+        $new.slideDown(1200);
     }
-    $("ul").append("<li>" + oneBottleLeft + "</li>");
+      $("p.one-bottle").append("<p>" + oneBottleLeft + "</p>");
+      function blinker() {
+        $('.one-bottle').fadeOut(500).fadeIn(500);
+      }
+      setInterval(blinker, 1000);
     }
+
     event.preventDefault();
   });
 });
