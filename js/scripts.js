@@ -28,9 +28,11 @@ $(function() {
     var bottles = hasBeer(userInput);
     var hasBottles = beerOnTheWall(userInput);
     var oneBottleLeft = oneBeerLeft();
+
     if(!bottles) {
       $("#result-1").show();
       $("#result-2").hide();
+
     } else if (bottles){
       $("#result-1").hide();
       $("#result-2").show();
@@ -43,7 +45,7 @@ $(function() {
         $("p.many-bottles").append($new);
         $new.slideDown(1200);
       }
-
+      
       $("p.one-bottle").append("<p>" + oneBottleLeft + "</p>");
       function blinker() {
         $('.one-bottle').fadeOut(500).fadeIn(500);
