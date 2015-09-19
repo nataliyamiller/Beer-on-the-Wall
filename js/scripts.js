@@ -28,14 +28,13 @@ $(function() {
     var bottles = hasBeer(userInput);
     var hasBottles = beerOnTheWall(userInput);
     var oneBottleLeft = oneBeerLeft();
-
     if(!bottles) {
       $("#result-1").show();
       $("#result-2").hide();
-    } else {
+    } else if (bottles){
       $("#result-1").hide();
-      $("#result-2").slideDown();
-      $("ul").empty();
+      $("#result-2").show();
+      $("p").empty();
       var number = hasBottles.length;
 
       for (var i = 0; i < number - 1 ; i++) {
@@ -43,13 +42,14 @@ $(function() {
         " bottles of beer. Take one down and pass it around, " + hasBottles[i+1] + " bottles of beer on the wall.</h5>").hide();
         $("p.many-bottles").append($new);
         $new.slideDown(1200);
-    }
+      }
+
       $("p.one-bottle").append("<p>" + oneBottleLeft + "</p>");
       function blinker() {
         $('.one-bottle').fadeOut(500).fadeIn(500);
       }
       setInterval(blinker, 1000);
-    }
+      }
 
     event.preventDefault();
   });
