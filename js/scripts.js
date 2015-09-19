@@ -22,7 +22,7 @@ var oneBeerLeft = function() {
 }
 
 
-$(document).ready(function() {
+$(function() {
   $("form#bottles").submit(function(event) {
     var userInput = parseInt($("input#user-input").val());
     var bottles = hasBeer(userInput);
